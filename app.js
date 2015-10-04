@@ -6,9 +6,9 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 
@@ -26,8 +26,8 @@ function validGame(game) {
     return true;
 }
 
-app.get('/', function(req,res){
-  res.redirect('https://github.com/stujo/tictactoe-api');
+app.get('/', function(req, res) {
+    res.redirect('https://github.com/stujo/tictactoe-api');
 });
 
 app.get('/api/v1/:game/:player', function(req, res) {
@@ -49,13 +49,22 @@ app.get('/api/v1/:game/:player', function(req, res) {
         try {
             var summary = model.boardSummary();
 
-            res.json({
+            console.log(summary);
+
+            var result = {
                 game: game,
-                player: player,
-                score: summary.score,
-                recommendation: summary.recommendation.index,
-                strength: summary.recommendation.score
-            });
+                player: player
+            };
+
+            if (summary) {
+                result.score = summary.score;
+                if (summary.recommendation) {
+                    result.recommendation = summary.recommendation.index;
+                    result.strength = summary.recommendation.score;
+                }
+            }
+
+            res.json(result);
         } catch (err) {
             res.status(500).json({
                 error: err.message
