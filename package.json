@@ -1,0 +1,29 @@
+{
+  "name": "tictactoe-api",
+  "version": "1.0.0",
+  "description": "JSON API to tictactoe-agent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stujo/tictactoe-api.git"
+  },
+  "keywords": [
+    "tictactoe",
+    "api"
+  ],
+  "author": "stujo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stujo/tictactoe-api/issues"
+  },
+  "homepage": "https://github.com/stujo/tictactoe-api#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "tictactoe-agent": "^1.0.3"
+  }
+}
