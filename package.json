@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/stujo/tictactoe-api#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "tictactoe-agent": "^1.0.3"
   },
   "devDependencies": {
     "tictactoe-agent": "^1.0.3"
