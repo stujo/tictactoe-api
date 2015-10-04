@@ -47,21 +47,16 @@ app.get('/api/v1/:game/:player', function(req, res) {
         var model = new TicTacToe.Model(game, player);
 
         try {
-            var summary = model.boardSummary();
-
-            console.log(summary);
+            var recommendation = model.getRecommendation();
 
             var result = {
                 game: game,
                 player: player
             };
 
-            if (summary) {
-                result.score = summary.score;
-                if (summary.recommendation) {
-                    result.recommendation = summary.recommendation.index;
-                    result.strength = summary.recommendation.score;
-                }
+            if (recommendation) {
+                result.recommendation = recommendation.index;
+                result.strength = recommendation.score;
             }
 
             res.json(result);
