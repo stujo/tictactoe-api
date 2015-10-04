@@ -20,6 +20,10 @@ function validGame(game) {
     return true;
 }
 
+app.get('/', function(req,res){
+  res.redirect('https://github.com/stujo/tictactoe-api');
+});
+
 app.get('/api/v1/:game/:player', function(req, res) {
 
     var game = req.params.game;
